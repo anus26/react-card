@@ -34,6 +34,7 @@ const Product = () => {
         <h1>Email:{item.email}</h1>
         <h2>phone :{item.phone}</h2>
         
+        
        <button onClick={()=>singleUser(item)}>Show more</button> 
         
         </div>
