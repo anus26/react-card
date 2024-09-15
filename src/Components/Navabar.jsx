@@ -33,28 +33,28 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
-const Pages = ['Product', 'Home', 'Contact','Service'];
+const Pages = ['home', 'product', 'contact', 'service'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
-let navigate=useNavigate()
+  let navigate = useNavigate()
 
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
+  const handleOpenNavMenu = (Pages) => {
+    setAnchorElNav(Pages.currentTarget);
   };
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
+  const handleOpenUserMenu = (Pages) => {
+    setAnchorElUser(Pages.currentTarget);
   };
 
   const handleCloseNavMenu = (Pages) => {
     setAnchorElNav(null);
-    if (Pages =='Home') {
+    if (Pages == 'Home') {
       navigate('')
       return
     }
@@ -115,9 +115,9 @@ let navigate=useNavigate()
               onClose={handleCloseNavMenu}
               sx={{ display: { xs: 'block', md: 'none' } }}
             >
-              {Pages.map((Pages) => (
-                <MenuItem key={Pages} onClick={ () =>handleCloseNavMenu(Pages)}>
-                  <Typography sx={{ textAlign: 'center' }}>{Pages}</Typography>
+              {Pages.map((Page,index) => (
+                <MenuItem key={index} onClick={() => handleCloseNavMenu(Page)}>
+                  <Link to={Page} sx={{ textAlign: 'center' }}>{Page}</Link>
                 </MenuItem>
               ))}
             </Menu>
@@ -143,13 +143,14 @@ let navigate=useNavigate()
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {Pages.map((Pages) => (
-              <Button
+              <Link
+              to={Pages}
                 key={Pages}
-                onClick={()=>handleCloseUserMenu(Pages)}
+                onClick={() => handleCloseUserMenu(Pages)}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
                 {Pages}
-              </Button>
+              </Link>
             ))}
           </Box>
           <Box sx={{ flexGrow: 0 }}>

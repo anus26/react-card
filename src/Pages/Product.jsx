@@ -17,7 +17,7 @@ const Product = () => {
         })
     },[])
     const singleUser=(item)=>{
-        navigate(`/singleUser/${item.id}`)
+        navigate(`/singleStudent/${item.id}`)
 
     }
   return (

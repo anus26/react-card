@@ -18,7 +18,9 @@ const SingleStudent = () => {
   return (
     <>
     <h1>SingleStudent {id}</h1>
-<h1>{data ? data.name: "Loading..."}</h1> 
+<h1>{data ? data.name : "Loading..."}</h1> 
+<h1>{data ? data.email:'loading...'}</h1>
+
    
     </>
   )
