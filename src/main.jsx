@@ -10,7 +10,6 @@ import Service from './Pages/Service.jsx'
 import SingleStudent from './Pages/SingleStudent.jsx'
 
 
-
 const router =createBrowserRouter([
   {
     path:'/',
