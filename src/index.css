@@ -3,6 +3,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+body {
+  @apply bg-darkBrown overflow-x-hidden;
+}
 
 .card {
     border: 1px solid #ccc;
